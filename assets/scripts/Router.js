@@ -66,5 +66,24 @@ export class Router {
      *     and URL + hash to history
      *  4. Finally, call the stored function for the given page
      */
+
+    if(typeOf (this[page]) === 'undefined') {
+      console.log(error);
+      return;
+    }
+
+    let hash = '';
+    if(page == 'home') {
+      hash = '';
+    }
+    else {
+      hash = '#' + page;
+    }
+
+    if(statePopped == false && window.location.hash != hash) {
+      history.pushState(history.state, '', window.location.href + window.location.hash);
+    }
+
+    eval(this[page]);
   }
 }
