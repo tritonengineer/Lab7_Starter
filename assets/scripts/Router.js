@@ -81,9 +81,10 @@ export class Router {
     }
 
     if(statePopped == false && window.location.hash != hash) {
-      history.pushState(history.state, '', window.location.href + window.location.hash);
+      window.history.pushState(history.state, '', window.location.href + window.location.hash);
     }
 
-    eval(this[page]);
+   
+    window.eval(this[page]);
   }
 }
